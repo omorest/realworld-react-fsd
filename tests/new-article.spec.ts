@@ -1,12 +1,12 @@
 import {test, expect} from '@playwright/test';
 
 import {login} from "./utils/POM/Login";
+import {Alice} from "./utils/fixtures/users";
 
 type Article = {title: string, description: string, body: string, tags: string}
 
 test.skip('Create new article', async ({page}) => {
-  const alice = {email: 'alice@test.com', password: "123456789", userName: "Alice"}
-  await login(page, alice)
+  await login(page, Alice)
 
   const newArticle: Article = {
     title: 'Nuevo articulo',
