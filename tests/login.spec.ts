@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { login, User } from './util';
+import { login, User } from './utils';
 
 
 test('login', async ({page}) => {

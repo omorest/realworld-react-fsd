@@ -1,9 +1,9 @@
 import {test, expect} from '@playwright/test';
-import { login } from './util';
- 
+import { login } from './utils';
+
 type Article = {title: string, description: string, body: string, tags: string}
 
-test.only('Create new article', async ({page}) => {
+test('Create new article', async ({page}) => {
   const alice = {email: 'alice@test.com', password: "123456789", userName: "Alice"}
   await login(page, alice)
 
