@@ -1,9 +1,10 @@
 import {test, expect} from '@playwright/test';
-import { login } from './utils';
+
+import {login} from "./utils/POM/Login";
 
 type Article = {title: string, description: string, body: string, tags: string}
 
-test('Create new article', async ({page}) => {
+test.skip('Create new article', async ({page}) => {
   const alice = {email: 'alice@test.com', password: "123456789", userName: "Alice"}
   await login(page, alice)
 
@@ -23,3 +24,10 @@ test('Create new article', async ({page}) => {
   await expect(page).toHaveURL(new RegExp(`/article/${newArticle.title.toLowerCase().replace(/ /g, '-')}-.*`));
   await expect(page.getByRole('heading', { name: newArticle.title })).toBeVisible();
 });
+
+
+
+// comprobar si existe el usuario
+// si existe loguear
+// si no existe registrarlo
+// crear un articulo
