@@ -1,7 +1,7 @@
-import {test, expect} from '@playwright/test';
+import {expect, test} from '@playwright/test';
 
+import {Alice} from './utils/fixtures/users';
 import {login} from "./utils/POM/Login";
-import {Alice} from "./utils/fixtures/users";
 
 type Article = {title: string, description: string, body: string, tags: string}
 

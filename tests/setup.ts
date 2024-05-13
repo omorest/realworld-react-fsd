@@ -1,6 +1,5 @@
 import { Page } from '@playwright/test';
 import {User} from "./utils/fixtures/users";
-
 import {login} from "./utils/POM/Login";
 import {signup} from "./utils/POM/Signup";
 
