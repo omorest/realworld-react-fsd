@@ -1,12 +1,13 @@
 import {expect, test} from '@playwright/test';
-
-import {Alice} from './utils/fixtures/users';
-import {login} from "./utils/POM/Login";
+import {Utils} from "./utils/POM/Utils";
+import {SignUp} from "./utils/POM/Signup";
+import {Login} from "./utils/POM/Login";
 
 type Article = {title: string, description: string, body: string, tags: string}
 
-test.skip('Create new article', async ({page}) => {
-  await login(page, Alice)
+test.only('Create new article', async ({page}) => {
+  const utils = new Utils(new Login(page), new SignUp(page));
+  await utils.loginOrSignup();
 
   const newArticle: Article = {
     title: 'Nuevo articulo',
