@@ -2,7 +2,7 @@ import {test, expect} from "./utils/test";
 
 type Article = {title: string, description: string, body: string, tags: string}
 
-test.only('Create new article', async ({page}) => {
+test('Create new article', async ({page}) => {
 
   const newArticle: Article = {
     title: 'Nuevo articulo',
