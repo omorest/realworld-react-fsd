@@ -11,7 +11,7 @@ export class Login {
   }
 
   public async waitForNavigation({userName =Alice.userName, timeout=30000} = {}) {
-    await this.page.waitForURL(`/profile/${userName}/`, {timeout});
+    await this.page.waitForURL(new RegExp(`/profile/${userName}/`), {timeout});
   }
 
   public async fill({email= Alice.email, password= Alice.password} = {}) {

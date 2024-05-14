@@ -3,8 +3,6 @@ import {test, expect} from "./utils/test";
 type Article = {title: string, description: string, body: string, tags: string}
 
 test.only('Create new article', async ({page}) => {
-  // const utils = new Utils(new Login(page), new SignUp(page), new Home(page));
-  // await utils.loginOrSignup();
 
   const newArticle: Article = {
     title: 'Nuevo articulo',
@@ -13,6 +11,7 @@ test.only('Create new article', async ({page}) => {
     tags: 'test, playwright'
   }
 
+  await page.goto('/')
   await page.getByRole('link', { name: 'New Article' }).click();
   await page.getByPlaceholder('Article Title').fill(newArticle.title);
   await page.getByPlaceholder('What\'s this article about?').fill(newArticle.description);
@@ -22,10 +21,3 @@ test.only('Create new article', async ({page}) => {
   await expect(page).toHaveURL(new RegExp(`/article/${newArticle.title.toLowerCase().replace(/ /g, '-')}-.*`));
   await expect(page.getByRole('heading', { name: newArticle.title })).toBeVisible();
 });
-
-
-
-// comprobar si existe el usuario
-// si existe loguear
-// si no existe registrarlo
-// crear un articulo
