@@ -7,20 +7,13 @@ export class Login {
     private readonly options = { baseURL: '/' },
   ) {}
 
-  async login({
-    email = Alice.email,
-    password = Alice.password,
-    userName = Alice.userName,
-  } = {}) {
+  async login({ email = Alice.email, password = Alice.password } = {}) {
     await this.fill({ email, password });
-    await this.waitForNavigation({ userName });
+    await this.waitForNavigation();
   }
 
-  public async waitForNavigation({
-    userName = Alice.userName,
-    timeout = 30000,
-  } = {}) {
-    await this.page.waitForURL(new RegExp(`/profile/${userName}/`), {
+  public async waitForNavigation({ timeout = 30000 } = {}) {
+    await this.page.waitForURL(/\/profile\/.*/, {
       timeout,
     });
   }

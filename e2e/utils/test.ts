@@ -28,7 +28,10 @@ export const test = baseTest.extend<
       const page = await browser.newPage({ storageState: undefined });
       const baseURL = 'http://localhost:5173/';
       const app = createApp(page, { baseURL });
-      await app.utils.loginOrSignup();
+      await app.utils.loginOrSignup({
+        email: `alice_${id}@gmail.com`,
+        name: `Alice ${id}`,
+      });
       // End of authentication steps.
 
       await page.context().storageState({ path: fileName });
