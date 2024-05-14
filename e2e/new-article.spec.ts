@@ -1,12 +1,10 @@
-import { expect, test } from './utils/test';
-import { NewArticle } from './utils/POM/NewArticle';
-import { Home } from './utils/POM/Home';
+import { test } from './utils/test';
 import { Article } from './utils/POM/Article';
+import { createApp } from './utils/createApp';
 
 test('Create new article', async ({ page }) => {
-  const newArticle = new NewArticle(page, new Home(page));
-  await newArticle.navigate();
-  await newArticle.fill();
-  const article = new Article(page);
-  await article.expectToBeVisible();
+  const app = createApp(page);
+  await app.newArticle.navigate();
+  await app.newArticle.fill();
+  await app.article.expectToBeVisible();
 });
