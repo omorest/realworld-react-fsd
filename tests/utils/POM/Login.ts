@@ -3,7 +3,7 @@ import {Alice} from "../fixtures/users";
 
 export class Login {
 
-  constructor(private readonly page: Page) {}
+  constructor(private readonly page: Page, private readonly options = {baseURL: "/"}) {}
 
   async login({email=Alice.email, password=Alice.password, userName=Alice.userName} = {}) {
     await this.fill({email, password});
@@ -21,7 +21,7 @@ export class Login {
   }
 
   public async navigate() {
-    await this.page.goto('/');
+    await this.page.goto(this.options.baseURL);
     await this.page.getByRole('link', {name: 'Sign in'}).click();
   }
 }

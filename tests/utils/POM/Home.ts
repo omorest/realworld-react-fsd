@@ -3,10 +3,10 @@ import {Alice} from "../fixtures/users";
 
 export class Home {
 
-  constructor(private readonly page: Page) {}
+  constructor(private readonly page: Page, private readonly options = {baseURL: "/"}) {}
 
   public async navigate() {
-    await this.page.goto('/');
+    await this.page.goto(this.options.baseURL);
   }
 
   public async ensureIsVisible({timeout=30000} = {}) {

@@ -1,14 +1,10 @@
-import {expect, test} from '@playwright/test';
-import {Utils} from "./utils/POM/Utils";
-import {SignUp} from "./utils/POM/Signup";
-import {Login} from "./utils/POM/Login";
-import {Home} from "./utils/POM/Home";
+import {test, expect} from "./utils/test";
 
 type Article = {title: string, description: string, body: string, tags: string}
 
 test.only('Create new article', async ({page}) => {
-  const utils = new Utils(new Login(page), new SignUp(page), new Home(page));
-  await utils.loginOrSignup();
+  // const utils = new Utils(new Login(page), new SignUp(page), new Home(page));
+  // await utils.loginOrSignup();
 
   const newArticle: Article = {
     title: 'Nuevo articulo',
