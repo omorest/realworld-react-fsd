@@ -17,6 +17,7 @@ module.exports = {
     es2020: true,
   },
   rules: {
+    'import/extensions': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 'off',
     'react/destructuring-assignment': 'off',

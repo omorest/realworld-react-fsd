@@ -15,6 +15,7 @@
     "test:coverage": "vitest run --coverage",
     "coverage:open": "npx vite preview --outDir ./coverage",
     "test:coverage:open": "yarn run test:coverage && yarn run coverage:open",
+    "test:e2e": "npx playwright test",
     "dep-cruiser:preview": "npx depcruise src --include-only \"^src\" --output-type dot | dot -T svg > dependency-graph-preview.svg"
   },
   "dependencies": {
