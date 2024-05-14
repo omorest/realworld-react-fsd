@@ -3,9 +3,13 @@ import { test as baseTest } from '@playwright/test';
 import { createApp } from './createApp';
 
 export * from '@playwright/test';
-export const test = baseTest.extend<{}, { workerStorageState: string }>({
+export const test = baseTest.extend<
+  { app: ReturnType<typeof createApp> },
+  { workerStorageState: string }
+>({
   // Use the same storage state for all tests in this worker.
   storageState: ({ workerStorageState }, use) => use(workerStorageState),
+  app: ({ page }, use) => use(createApp(page)),
 
   // Authenticate once per worker with a worker-scoped fixture.
   workerStorageState: [
